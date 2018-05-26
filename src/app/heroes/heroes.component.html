@@ -1,0 +1,32 @@
+<p>
+  heroes works!
+  {{hero1}}
+</p>
+<p>{{hero2}}</p>
+<p>{{hero2.id}}</p>
+<p>{{hero2.name}}</p>
+<p>{{hero2.name|uppercase}}</p>
+
+<div><input [(ngModel)]="hero2.name" placeholder="" /></div>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngIf="hero">
+    <span class="badge">{{hero2.id}}</span> {{hero2.name}}
+  </li>
+</ul>
+<hr  />
+<!-- <div>{{selectedHero.name}}</div>
+<div>{{selectedHero.id}}</div> -->
+<ul class="heroes" style="float: left;">
+  <li *ngFor="let heroItem of heroes"
+  	>
+  	<button (click)="onSelect(heroItem)">{{heroItem.id}}</button>
+    <a routerLink="/detail/{{heroItem.id}}">
+      <span class="badge">{{heroItem.id}}</span> {{heroItem.name}}
+    </a>
+  </li>
+</ul>
+<!-- 需注释掉原 selectedHero -->
+<app-hero-detail [hero]="selectedHero" style="float: left;"></app-hero-detail>
+<hr  />
